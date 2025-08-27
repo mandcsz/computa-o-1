@@ -2,7 +2,9 @@
 
 int main() {
 	float A,B,C;
-	
+
+	int codigo;
+
 	printf("Digite o valor do lado A:");
 	scanf("%f", &A);
 
@@ -18,7 +20,7 @@ int main() {
 		if(A == B && B == C) {
 			printf("Triangulo equilatero.\n");
 
-		} else if(A == B || B == C|| A == C) {
+		} else if(A == B && B == C|| A == C) {
 			printf("Triangulo isosceles.\n");
 
 		} else {
@@ -26,9 +28,7 @@ int main() {
 		}
 
 	} else {
-		printf("Os valores nao formam um triangulo.\n");
+		printf("Os valores nC#o formam um triangulo.\n");
 	}
 	return 0;
-
 }
-
