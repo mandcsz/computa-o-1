@@ -28,7 +28,8 @@ int main() {
 		}
 
 	} else {
-		printf("Os valores nC#o formam um triangulo.\n");
+		printf("Os valores nao formam um triangulo.\n");
 	}
 	return 0;
+
 }
