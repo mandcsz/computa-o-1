@@ -1,11 +1,34 @@
 #include <stdio.h>
-int main(){
 
-    printf ("Calculo do IMC \n") ;
-    printf ("Altura: %f \n", 1.64) ;
-    printf ("Peso:%f \n", 62.5) ;
+int main() {
+	float A,B,C;
 
-    printf ("IMC: %f ", 62.5/(1.64* 1.64)) ;
-    
-    return 0 ;
+	int codigo;
+
+	printf("Digite o valor do lado A:");
+	scanf("%f", &A);
+
+	printf("Digite o valor do lado B:");
+	scanf("%f", &B);
+
+	printf("Digite o valor do lado C:");
+	scanf("%f", &C);
+
+	if (A + B > C && A + C > B && B + C > A) {
+	printf("Os valores formam um triangulo.\n");
+
+		if(A == B && B == C) {
+			printf("Triangulo equilatero.\n");
+
+		} else if(A == B && B == C|| A == C) {
+			printf("Triangulo isosceles.\n");
+
+		} else {
+			printf("Triangulo escaleno.\n");
+		}
+
+	} else {
+		printf("Os valores nC#o formam um triangulo.\n");
+	}
+	return 0;
 }
