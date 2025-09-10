@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int main()
-{
 #define PRIMEIRA 1
 #define ULTIMA 1 
 
+int main()
+{
 	int quantidade_1;
 	int quantidade_2;
 	float valor;
