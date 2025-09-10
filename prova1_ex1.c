@@ -15,7 +15,7 @@ int main()
 	printf("digite a quantidade_2:");
 	scanf("%d", &quantidade_2);
 
-	valor = (quantidade_1 + quantidade_2) * (ULTIMA - PRIMEIRA / 2.0);
+	valor = (quantidade_1 + quantidade_2) * ((ULTIMA - PRIMEIRA / 2.0);
 
 	if (valor > quantidade_1) {
 		printf("O resultado é %f e as quantidades sao %d e %d", valor, quantidade_1, quantidade_2);
