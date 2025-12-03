@@ -1,35 +1,67 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define LINHAS 4
+#define COLUNAS 3
+#define TAM 100
+
+int ehVogal(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+void inverterString(char s[]) {
+    int i, j;
+    char temp;
+    for (i = 0, j = strlen(s) - 1; i < j; i++, j--) {
+        temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+    }
+}
 
 int main() {
-	float A,B,C;
+    char matriz[LINHAS][COLUNAS][TAM];
+    char matrizModificada[LINHAS][COLUNAS][TAM];
 
-	int codigo;
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("Digite a string da posição [%d][%d]: ", i, j);
+            fgets(matriz[i][j], TAM, stdin);
 
-	printf("Digite o valor do lado A:");
-	scanf("%f", &A);
+            matriz[i][j][strcspn(matriz[i][j], "\n")] = '\0';
 
-	printf("Digite o valor do lado B:");
-	scanf("%f", &B);
+            strcpy(matrizModificada[i][j], matriz[i][j]);
+        }
+    }
 
-	printf("Digite o valor do lado C:");
-	scanf("%f", &C);
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            int tam = strlen(matrizModificada[i][j]);
 
-	if (A + B > C && A + C > B && B + C > A) {
-	printf("Os valores formam um triangulo.\n");
+            if (tam > 0 &&
+                ehVogal(matrizModificada[i][j][0]) &&
+                ehVogal(matrizModificada[i][j][tam - 1])) {
 
-		if(A == B && B == C) {
-			printf("Triangulo equilatero.\n");
+                inverterString(matrizModificada[i][j]);
+            }
+        }
+    }
 
-		} else if(A == B && B == C|| A == C) {
-			printf("Triangulo isosceles.\n");
+    printf("\n===== MATRIZ ORIGINAL =====\n");
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("[%d][%d] = %s\n", i, j, matriz[i][j]);
+        }
+    }
 
-		} else {
-			printf("Triangulo escaleno.\n");
-		}
+    printf("\n===== MATRIZ MODIFICADA =====\n");
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("[%d][%d] = %s\n", i, j, matrizModificada[i][j]);
+        }
+    }
 
-	} else {
-		printf("Os valores nao formam um triangulo.\n");
-	}
-	return 0;
-
+    return 0;
 }
